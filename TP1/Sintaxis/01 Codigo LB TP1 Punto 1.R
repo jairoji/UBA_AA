@@ -10,28 +10,27 @@ set.seed(12345)
 
 muestra = sample(1:nrow(base.final), size = nrow(base.final)*.8, replace = F)
 
-base.final = base.final[,-which(names(base.final)=="IDENPA")]
+#base.final = base.final[,-which(names(base.final)=="IDENPA")]
 
 base.final.training = base.final[muestra,]
 base.final.test = base.final[-muestra,]
 
 #write.csv(base.final.training, "Base_final_LB_Training.csv", row.names = F)
 #write.csv(base.final.test, "Base_final_LB_Test.csv", row.names = F)
-
 Confidence = seq(0.025, 0.5, by = 0.025)
-P10ST.J48 = J48(P10ST~., data=base.final.training, control = Weka_control(C = Confidence[1], M = 10))
+P10ST.J48 = J48(P10ST ~ . , data=base.final.training, control = Weka_control(C = Confidence[1], M = 2))
 P10ST.J48.e <- evaluate_Weka_classifier(P10ST.J48, newdata = base.final.test)
 info.confidence = matrix(ncol = 5, nrow = length(Confidence))
 colnames(info.confidence) = c("Confidence", "Tamaño", "Hojas", "Entrenamiento", "Test")
 info.confidence[1,] = c(Confidence[1], P10ST.J48$classifier$measureTreeSize(), P10ST.J48$classifier$measureNumLeaves(), summary(P10ST.J48)$details["pctCorrect"], P10ST.J48.e$details["pctCorrect"])
 
-date()
+ptm <- proc.time()
 for(i in 2:length(Confidence)){
-  P10ST.J48 = J48(P10ST~., data=base.final.training, control = Weka_control(C = Confidence[i], M = 10))
+  P10ST.J48 = J48(P10ST~., data=base.final.training, control = Weka_control(C = Confidence[i], M = 2))
   P10ST.J48.e <- evaluate_Weka_classifier(P10ST.J48, newdata = base.final.test)
   info.confidence[i,] = c(Confidence[i], P10ST.J48$classifier$measureTreeSize(), P10ST.J48$classifier$measureNumLeaves(), summary(P10ST.J48)$details["pctCorrect"], P10ST.J48.e$details["pctCorrect"])
 }
-date()
+proc.time() - ptm
 
 
 
@@ -63,8 +62,8 @@ dev.off()
 
 info.confidence2 = melt(info.confidence[,c(1,2,3)], id.vars = "Confidence")
 colnames(info.confidence2) = c("Confianza", "Característica", "Número")
-Conf.vs.Tamano = ggplot(data = info.confidence2, aes(x = Confianza, y = Número, group = Característica, colour = Característica)) + geom_line()
-Conf.vs.Tamano = Conf.vs.Tamano + ggtitle("Gráfico de confianza vs performance") + xlab("Confianza") + ylab("Performance")
+Conf.vs.Tamano = ggplot(data = info.confidence2, aes(x = Confianza, y = Número, group = Característica, colour = Característica)) + geom_line(size = 2)
+Conf.vs.Tamano = Conf.vs.Tamano + ggtitle("Gráfico de confianza vs tamaño del árbol y número de hojas") + xlab("Confianza") + ylab("Performance")
 Conf.vs.Tamano = Conf.vs.Tamano + theme(plot.title = element_text(size = 20))
 Conf.vs.Tamano = Conf.vs.Tamano + theme(axis.text = element_text(size = 15))
 Conf.vs.Tamano = Conf.vs.Tamano + theme(axis.title.x = element_text(size = 15))
