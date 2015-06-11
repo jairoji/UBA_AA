@@ -3,6 +3,7 @@ setwd("/run/media/jjimenez/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Datasets/"
 library(RWeka)
 library(ggplot2)
 library(reshape)
+library(beepr)
 
 base.final = read.arff("Base_Final.arff")
 
@@ -64,7 +65,7 @@ for(j in 2:length(Ruido)){
   print(paste(j, length(muestra1)))
 }
 proc.time() - ptm
-alarm() ##Hace un sonido cuando el algoritmo termina de ejecutarse
+beep(8) ##Hace un sonido cuando el algoritmo termina de ejecutarse
 
 info.confidence2 = as.data.frame(info.confidence2)
 info.confidence.melt = melt(info.confidence2[,c(1,2,5,6)], id.vars = c("Confidence", "Ruido"))
@@ -81,19 +82,35 @@ Ruido.VS.Ajuste = Ruido.VS.Ajuste + theme(legend.text = element_text(size=13))
 Ruido.VS.Ajuste = Ruido.VS.Ajuste + theme(legend.title = element_text(size=15))
 Ruido.VS.Ajuste
 
-#info.confidence.melt.Entrenamiento = subset(info.confidence.melt, Característica == "Entrenamiento")
-#info.confidence.melt.Entrenamiento[,"Característica"] = droplevels(info.confidence.melt.Entrenamiento[,"Característica"])
+info.confidence.melt.Entrenamiento = subset(info.confidence.melt, Característica == "Entrenamiento")
+info.confidence.melt.Entrenamiento[,"Característica"] = droplevels(info.confidence.melt.Entrenamiento[,"Característica"])
 
-#Conf.VS.Ruido.Entre = ggplot(data = info.confidence.melt.Entrenamiento, aes(x = Ruido, y = Porcentaje, 
-#                                                              group = Confianza, colour = Confianza)) + geom_line(size = 1.2)
-#Conf.VS.Ruido.Entre
+Conf.VS.Ruido.Entre = ggplot(data = info.confidence.melt.Entrenamiento, aes(x = Ruido, y = Porcentaje, 
+                                                              group = Confianza, colour = Confianza)) + geom_line(size = 1)
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + ggtitle("Gráfico de ruido vs tamaño - Entrenamiento ") + xlab("Ruido") + ylab("Performance")
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(plot.title = element_text(size = 20))
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(axis.text = element_text(size = 15))
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(axis.title.x = element_text(size = 15))
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(axis.title.y = element_text(size = 13))
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(legend.text = element_text(size=13))
+Conf.VS.Ruido.Entre = Conf.VS.Ruido.Entre + theme(legend.title = element_text(size=15))
+Conf.VS.Ruido.Entre
 
-#info.confidence.melt.Test = subset(info.confidence.melt, Característica == "Test")
-#info.confidence.melt.Test[,"Característica"] = droplevels(info.confidence.melt.Test[,"Característica"])
 
-#Conf.VS.Ruido.Test = ggplot(data = info.confidence.melt.Test, aes(x = Ruido, y = Porcentaje, 
-#                                                                  group = Confianza, colour = Confianza)) + geom_line(size = 1.2)
-#Conf.VS.Ruido.Test
+info.confidence.melt.Test = subset(info.confidence.melt, Característica == "Test")
+info.confidence.melt.Test[,"Característica"] = droplevels(info.confidence.melt.Test[,"Característica"])
+
+Conf.VS.Ruido.Test = ggplot(data = info.confidence.melt.Test, aes(x = Ruido, y = Porcentaje, 
+                                                                  group = Confianza, colour = Confianza)) + geom_line(size = 1)
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + ggtitle("Gráfico de ruido vs tamaño - Test") + xlab("Ruido") + ylab("Performance")
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(plot.title = element_text(size = 20))
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(axis.text = element_text(size = 15))
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(axis.title.x = element_text(size = 15))
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(axis.title.y = element_text(size = 13))
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(legend.text = element_text(size=13))
+Conf.VS.Ruido.Test = Conf.VS.Ruido.Test + theme(legend.title = element_text(size=15))
+Conf.VS.Ruido.Test
+
 
 
 #Conf.VS.Ruido = ggplot(data = info.confidence.melt, aes(x = Ruido, y = Porcentaje, 

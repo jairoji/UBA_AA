@@ -1,0 +1,58 @@
+---
+title: "Trabajo Práctico 1"
+author: "Jairo Jiménez, Sergio De Raco"
+date: "11 de junio de 2015"
+output: html_document
+---
+
+## Objetivo
+
+##Alcance
+
+##Resultados esperados
+
+##Metodología
+
+###1. Sobreajuste y poda
+
+```{r ggplot2ex}
+Conf.vs.Ajuste
+```
+
+
+###2. Tratamiento de datos faltantes
+
+####2.1 Sobre una sola variable
+
+####2.2 Sobre varias variables con un único faltante por fila
+
+####2.3 Sobre varias variables con múltiples faltantes por fila
+
+###3. Tolerancia al Ruido
+
+###4. Discretización de atributos numéricos
+
+##Conclusiones
+
+##Trabajo futuro
+
+##Referencias
+
+##Bibliografía
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
