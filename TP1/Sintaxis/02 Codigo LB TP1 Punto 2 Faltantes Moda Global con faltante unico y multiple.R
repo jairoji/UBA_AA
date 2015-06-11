@@ -52,6 +52,8 @@ setwd("/run/media/ahriman/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Datasets/")
 library(RWeka)
 library(ggplot2)
 library(reshape)
+library(beepr)
+library(xlsx)
 
 base.final = read.arff("Base_Final.arff")
 base.final = as.data.frame(base.final)
@@ -70,6 +72,8 @@ base.final = base.final[, c("P10ST", "S1NICC7", "S15", "S16", "S17", "S14", "S28
 
 muestra = sample(1:nrow(base.final), size = nrow(base.final)*.8, replace = F)
 
+base.final.training = as.data.frame(base.final[muestra,])
+base.final.test = as.data.frame(base.final[-muestra,])
 
 ##Unico
 info.confidence.unico = NULL
@@ -112,10 +116,11 @@ for(j in 2:length(Faltantes)){
   print(j)
 }
 proc.time() - ptm
+beep(8)
 
+base.final.training = as.data.frame(base.final[muestra,])
+base.final.test = as.data.frame(base.final[-muestra,])
 
-
- 
 ##Multiple
 info.confidence.multiple = NULL
 P10ST.J48 = J48(P10ST~., data=base.final.training, control = Weka_control(C = Confidence[1], M = 2))
@@ -159,11 +164,15 @@ for(j in 2:length(Faltantes)){
   print(table(base.final.training[,3]))
 }
 proc.time() - ptm
+beep(8)
 
 info.confidence.unico = as.data.frame(info.confidence.unico)
 info.confidence.multiple = as.data.frame(info.confidence.multiple)
 
+setwd("/run/media/ahriman/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Resultados/")
 
+write.xlsx(info.confidence.unico, "2.2.1.Mult.Col.Unic.Fil.Global.xlsx", sheetName = "Múltiple columna, única fila Global")
+write.xlsx(info.confidence.multiple, "2.3.1.Mult.Col.Mult.Fil.Global.xlsx", sheetName = "Múltiple columna, multiple fila Global")
 
 info.confidence.unico.melt = melt(info.confidence.unico[,c(1,2,5,6)], id.vars = c("Confidence", "Faltantes"))
 colnames(info.confidence.unico.melt) = c("Confianza", "Faltantes", "Característica", "Porcentaje")
@@ -175,10 +184,10 @@ Conf.VS.Faltantes
 info.confidence.multiple.melt = melt(info.confidence.multiple[,c(1,2,5,6)], id.vars = c("Confidence", "Faltantes"))
 colnames(info.confidence.multiple.melt) = c("Confianza", "Faltantes", "Característica", "Porcentaje")
 info.confidence.multiple.melt[,"Confianza"] = as.factor(info.confidence.multiple.melt[,"Confianza"])
+Conf.VS.Faltantes = ggplot(data = info.confidence.multiple.melt, aes(x = Faltantes, y = Porcentaje, 
+                                                                  group = interaction(Confianza, Característica), linetype = Característica, colour = Confianza)) + geom_line(size = 1.2)
+Conf.VS.Faltantes
 
-h=1
-table(base.final.training1[,h])
-table(base.final.training[,h])
 
 
 info.confidence.unico.melt1 = subset(info.confidence.unico.melt, Característica == "Test")
