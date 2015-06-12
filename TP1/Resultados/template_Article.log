@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.21)  12 JUN 2015 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.21)  12 JUN 2015 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,11 +459,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
  [2]
-Overfull \hbox (31.69398pt too wide) in paragraph at lines 71--72
-\OT1/cmr/m/n/10 Weka [[]] me-di-ante el lenguaje es-tad^^S^^Pstico R [[]]
- []
-
-<1_3_Conf_Perf_Num.png, id=14, 1003.75pt x 401.5pt>
+<1_3_Conf_Perf_Num.png, id=17, 1003.75pt x 401.5pt>
 File: 1_3_Conf_Perf_Num.png Graphic file (type png)
 
 <use 1_3_Conf_Perf_Num.png>
@@ -475,7 +471,7 @@ Overfull \hbox (36.42897pt too wide) in paragraph at lines 88--89
  []
 
 [3 <./1_3_Conf_Perf_Num.png (PNG copy)>]
-<2_1_Unic_Col.png, id=19, 1606.0pt x 1204.5pt>
+<2_1_Unic_Col.png, id=22, 1606.0pt x 1204.5pt>
 File: 2_1_Unic_Col.png Graphic file (type png)
  <use 2_1_Unic_Col.png>
 Package pdftex.def Info: 2_1_Unic_Col.png used on input line 121.
@@ -485,8 +481,8 @@ Overfull \hbox (88.62581pt too wide) in paragraph at lines 121--122
 [][] 
  []
 
-[4 <./2_1_Unic_Col.png (PNG copy)>]
-<2_1_Mult_Col_Unic_Fil.png, id=23, 1606.0pt x 1204.5pt>
+[4] [5 <./2_1_Unic_Col.png (PNG copy)>]
+<2_1_Mult_Col_Unic_Fil.png, id=30, 1606.0pt x 1204.5pt>
 File: 2_1_Mult_Col_Unic_Fil.png Graphic file (type png)
 
 <use 2_1_Mult_Col_Unic_Fil.png>
@@ -497,7 +493,7 @@ Overfull \hbox (88.62581pt too wide) in paragraph at lines 138--139
 [][] 
  []
 
-[5] <2_1_Mult_Col_Mult_Fil.png, id=28, 1606.0pt x 1204.5pt>
+<2_1_Mult_Col_Mult_Fil.png, id=31, 1606.0pt x 1204.5pt>
 File: 2_1_Mult_Col_Mult_Fil.png Graphic file (type png)
 
 <use 2_1_Mult_Col_Mult_Fil.png>
@@ -514,62 +510,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
-<3_1_Ruido.png, id=36, 1003.75pt x 401.5pt>
+<3_1_Ruido.png, id=39, 1003.75pt x 401.5pt>
 File: 3_1_Ruido.png Graphic file (type png)
  <use 3_1_Ruido.png>
-Package pdftex.def Info: 3_1_Ruido.png used on input line 167.
+Package pdftex.def Info: 3_1_Ruido.png used on input line 166.
 (pdftex.def)             Requested size: 381.42897pt x 152.57158pt.
 
-Overfull \hbox (36.42897pt too wide) in paragraph at lines 167--168
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 166--167
 [][] 
  []
 
 [8 <./3_1_Ruido.png (PNG copy)>]
-<4_1_Bins_Todas_var.png, id=40, 1003.75pt x 1204.5pt>
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+
+ []
+
+<4_1_Bins_Todas_var.png, id=43, 1003.75pt x 1204.5pt>
 File: 4_1_Bins_Todas_var.png Graphic file (type png)
 
 <use 4_1_Bins_Todas_var.png>
-Package pdftex.def Info: 4_1_Bins_Todas_var.png used on input line 192.
+Package pdftex.def Info: 4_1_Bins_Todas_var.png used on input line 185.
 (pdftex.def)             Requested size: 381.42897pt x 457.71477pt.
 
-Overfull \hbox (36.42897pt too wide) in paragraph at lines 192--193
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 185--186
 [][] 
  []
 
-[9] [10 <./4_1_Bins_Todas_var.png (PNG copy)>]
-<4_2_Bins_Selected_var.png, id=47, 1003.75pt x 1204.5pt>
-File: 4_2_Bins_Selected_var.png Graphic file (type png)
-
-<use 4_2_Bins_Selected_var.png>
-Package pdftex.def Info: 4_2_Bins_Selected_var.png used on input line 212.
-(pdftex.def)             Requested size: 381.42897pt x 457.71477pt.
-
-Overfull \hbox (36.42897pt too wide) in paragraph at lines 212--213
-[][] 
- []
-
-[11] [12 <./4_2_Bins_Selected_var.png (PNG copy)>] (./template_Article.bbl
-[13]) [14] (./template_Article.aux) ) 
+[9] [10 <./4_1_Bins_Todas_var.png (PNG copy)>] [11] (./template_Article.bbl)
+[12] (./template_Article.aux) ) 
 Here is how much of TeX's memory you used:
- 2580 strings out of 495025
- 34114 string characters out of 6181515
- 96298 words of memory out of 5000000
- 5733 multiletter control sequences out of 15000+600000
+ 2575 strings out of 495025
+ 33981 string characters out of 6181515
+ 97305 words of memory out of 5000000
+ 5729 multiletter control sequences out of 15000+600000
  11849 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,7n,24p,988b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on template_Article.pdf (14 pages, 2571463 bytes).
+ 37i,8n,24p,1128b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb>
+Output written on template_Article.pdf (12 pages, 2428314 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

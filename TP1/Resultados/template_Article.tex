@@ -24,7 +24,7 @@ El objetivo del presente trabajo es analizar las característcas en las cuáles 
 
 \section*{Alcance}
 
-Los datos utilizados provienen de la última encuesta disponible sin suscripción (año 2011) de [Latinobarómetro]<http://www.latinobarometro.org>, un estudio de opinión pública que realiza anualmente alrededor de 20.000 entrevistas en 18 países de América Latina. Los datos se encuentran disponibles online, junto con el cuestionario y la metodología correspondientes.
+Los datos utilizados provienen de la última encuesta disponible sin suscripción (año 2011) de Latinobarómetro \footnote{http://www.latinobarometro.org}, un estudio de opinión pública que realiza anualmente alrededor de 20.000 entrevistas en 18 países de América Latina. Los datos se encuentran disponibles online, junto con el cuestionario y la metodología correspondientes.
 La encuesta se realiza en centros urbanos de los países de cobertura y contiene preguntas y datos acerca de la situación social, política y económica (actual, pasada y futura), distribución del ingreso, nivel educativo, percepciones acerca de la participación del Estado e información demográfica.
 
 En este trabajo se seleccionaron variables (preguntas de la encuesta) que pudieran aportar a predecir la respuesta a la pregunta (P10ST):  ¿Cree usted que el país está o no progresando? Para ello se seleccionaron los siguientes atributos: 
@@ -56,7 +56,7 @@ En este trabajo se seleccionaron variables (preguntas de la encuesta) que pudier
 \end{center}
 
 
-La base completa contiene 20.204 registros y 414 columnas, que representan las preguntas y datos de la encuesta. Para el trabajo se seleccionaron respuestas por países sudamericanos (Argentina, Bolivia, Brasil, Chile, Colombia, Ecuador, Paraguay, Perú, Uruguay y Venezuela), así se redujo a 11.614 observaciones para las 20 variables. En primer lugar, se procedió a transformar la variable de clase (P10ST) en una variable binaria que en el dataset aparece relativamente balanceada, con participaciones de 43.5 y 56.5 en cada categoría. Luego, en los atributos seleccionadso se agregaron categorías para evitar introducir un sesgo en la poda sobre atributos con menor cantidad de categorías. 
+La base completa contiene 20.204 registros y 414 columnas, que representan las preguntas y datos de la encuesta. Para el trabajo se seleccionaron respuestas de países sudamericanos (Argentina, Bolivia, Brasil, Chile, Colombia, Ecuador, Paraguay, Perú, Uruguay y Venezuela), así se redujo a 11.614 observaciones para las 20 variables. 
 
 \section*{Resultados esperados}
 Los resultados esperados para cada uno de los temas a trabajar en este trabajo son:
@@ -68,7 +68,7 @@ Los resultados esperados para cada uno de los temas a trabajar en este trabajo s
 \end{itemize}
 
 \section*{Metodología}
-Para la realización del presente trabajo, se utiliza el sofware de minería de datos Weka \cite{Weka1} mediante el lenguaje estadístico R \cite{RCran} usando el paquete RWeka \cite{RWeka}. Para cada punto se programaron funciones que llaman a distintos comandos de Weka desde R con el vector de parámetros de control adecuado.
+Para la realización del presente trabajo, de árboles de clasificación basado en la teoría expuesta en el libro de Mitchell \cite{Mitchell:1997:ML:541177}, se utiliza el sofware de minería de datos Weka \cite{Weka1} mediante el lenguaje estadístico R\\ \cite{RCran} usando el paquete RWeka \cite{RWeka}. Se filtraron los datos de la encuesta según el alcance definido y se agruparon categorías en las variables que presentaban mayor cantidad de niveles. En la tabla anterior se indica la cantidad de categorías para cada variable seleccionada incluidas en la base final. En primer lugar, se procedió a transformar la variable de clase (P10ST) en una variable binaria, que en el dataset aparece relativamente balanceada, con participaciones de 43.5 y 56.5 en cada categoría. Luego, en los atributos seleccionados se agregaron categorías para evitar introducir un sesgo en la poda sobre atributos con menor cantidad de categorías. Para cada punto se programaron funciones que llaman a distintos comandos de Weka desde R con el vector de parámetros de control adecuado.
 
 
 
@@ -160,8 +160,7 @@ En este caso, a medida que aumenta el porcentaje de valores faltantes, se observ
 \section{Tolerancia al ruido}
 Para observar la tolerancia del algoritmo J-48 al ruido, se generó ruido entre el 0\% y el 35\% aumentando de a 0.025\%. Este ruido fue generado de manera aleatoria para cada una de las categorías de la variable de clase. \\
 
-Se puede observar que el 
-Figura \ref{3.P3Ruido}
+Se puede observar que el performance tanto en el set de entrenamiento como en el de test decae a medida que aumenta el porcentaje de ruido, aunque en el set de entrenamiento tiende a estabilizarse. En cuanto a el tamaño del árbol y el número de hojas, estos aumentan para todos los valores de confianza cuando el porcentaje de ruido crece. Figura \ref{3.P3Ruido}
 
 \begin{figure}[H]
 	\includegraphics[scale = 0.38]{3_1_Ruido}
@@ -169,24 +168,18 @@ Figura \ref{3.P3Ruido}
 	\label{3.P3Ruido}
 \end{figure}
 
-\section{Discretización de atributos numéricos}
-La única variable numérica considerada es la EDAD ($S17$), que se procedió a discretizar según tres criterios para el diseño de las categorías: a) de igual densidad, b) de igual frecuencia, y c) supervisado, en base a la clase.
-
-Si la variable a discretizar resultara relevante en términos de ganancia de información, se esperaría encontrar que a mayor cantidad de bins se incremente la performance del conjunto de entrenamiento. Para el caso, la variable EDAD evidencia poco aporte de información, independientemente del criterio de discretización utilizado. 
-
-Para el ejercicio se programó una función que selecciona entre los distintos criterios y luego, para cada bin del intervalo $[1,20]$, se arma un dataset con la variable discretizada que se particiona en subconjuntos de entrenamiento ($80\%$) y test ($20\%$). Luego, para la familia de combinaciones de factor de confianza en el intervalo $[0.05,0.5]$ a pasos de $0.05$, se corre llama al J48 sobre el primer dataset para extraer el modelo a utilizar con el conjunto de test y de ambas corridas se extrae la información que se precisa: tamaño del árbol, cantidad de hojas y performance.
 
 \section{Discretización de atributos numéricos}
 La única variable numérica considerada es la EDAD ($S17$), que se procedió a discretizar según tres criterios para el diseño de las categorías: a) de igual densidad, b) de igual frecuencia, y c) supervisado, en base a la clase.
 
 Si la variable a discretizar resultara relevante en términos de ganancia de información, se esperaría encontrar que a mayor cantidad de bins se incremente la performance del conjunto de entrenamiento. Para el caso, la variable EDAD evidencia poco aporte de información, independientemente del criterio de discretización utilizado. 
 
-Para el ejercicio se programó una función que selecciona entre los distintos criterios y luego, para cada bin del intervalo $[1,20]$, se arma un dataset con la variable discretizada que se particiona en subconjuntos de entrenamiento ($80\%$) y test ($20\%$). Luego, para la familia de combinaciones de factor de confianza en el intervalo $[0.05,0.5]$ a pasos de $0.05$, se corre llama al J48 sobre el primer dataset para extraer el modelo a utilizar con el conjunto de test y de ambas corridas se extrae la información que se precisa: tamaño del árbol, cantidad de hojas y performance.
+Para el ejercicio se programó una función que selecciona entre los distintos criterios y luego, para cada bin del intervalo $[1,20]$, se arma un dataset con la variable discretizada que se particiona en subconjuntos de entrenamiento ($80\%$) y test ($20\%$). Luego, para la familia de combinaciones de factor de confianza en el intervalo $[0.05,0.5]$ a pasos de $0.05$, se corre llama al J48 sobre el primer dataset para extraer el modelo a utilizar con el conjunto de test y de ambas corridas se extrae la información que se precisa: tamaño del árbol, cantidad de hojas y performance.\\
 
-Adicionalmente, dado que se encuentra que la variable a discretizar aporta escasa o nula información en la determinación de la clase para el conjunto de variables seleccionadas, se realiza el ejercicio de discretización con la clase, la variable EDAD y una variable equiparable a esta en términos de poder de discriminación ($S15$, ESTADO CIVIL) para observar el comportamiento del algoritmo.
+%Adicionalmente, dado que se encuentra que la variable a discretizar aporta escasa o nula información en la determinación de la clase para el conjunto de variables seleccionadas, se realiza el ejercicio de discretización con la clase, la variable EDAD y una variable equiparable a esta en términos de poder de discriminación ($S15$, ESTADO CIVIL) para observar el comportamiento del algoritmo.
 
-\subsection{Todas las variables}
-Cuando se incluye el conjunto completo de variables seleccionadas, en todos los casos se observa para distintos factores de confianza una mejora la performance del conjunto de entrenamiento y test a la vez para el intervalo de valores del factor de confianza especificado. No obstante, para cantidades mayores de niveles (bins) se observa incluso una caída en la performance de entrenamiento y test en las estrategias que no consideran la clase. Estos resultados indicarían que la variable EDAD no aporta mayor información que el resto de las variables consideradas.  
+%\subsection{Todas las variables}
+En todos los casos se observa para distintos factores de confianza una mejora la performance del conjunto de entrenamiento y test a la vez para el intervalo de valores del factor de confianza especificado. No obstante, para cantidades mayores de niveles (bins) se observa incluso una caída en la performance de entrenamiento y test en las estrategias que no consideran la clase. Estos resultados indicarían que la variable EDAD no aporta mayor información que el resto de las variables consideradas.  
 
 \begin{figure}[H]
 	\includegraphics[scale = 0.38]{4_1_Bins_Todas_var}
@@ -195,26 +188,26 @@ Cuando se incluye el conjunto completo de variables seleccionadas, en todos los 
 \end{figure}
 
 
-\subsubsection{Discretización por densidad}
+\subsection{Discretización por densidad}
 En este caso, como se observa en la Figura \ref{4.P4Todas} se encontró que la variable discretizada prácticamente no incide en la performance (gráficos a la derecha) ni en en el tamaño del árbol (gráficos a la izquierda), lo cual estaría indicando que es un atributo sin mayor poder de discriminación.
 
-\subsubsection{Discretización por frecuencias}
+\subsection{Discretización por frecuencias}
 En el caso de la discretización por frecuencias se observa una respuesta similar, con signos de independencia tanto del tamaño del árbol como de la performance respecto de la cantidad de bins de discretización. En comparación con el criterio anterior, aparentemente no introduce mejoras a la performance en el conjunto de entrenamiento. 
 
-\subsubsection{Método supervisado}
+\subsection{Método supervisado}
 Para este criterio, dado que no puede elegirse la cantidad de bines sino que es una salida de la corrida algoritmo, corresponde observar cuántos niveles utiliza el algoritmo en la discretización. Con el dataset utilizado el J48 entrega una sola categoría (bin) que para la variable de clase no aporta nueva información. 
 
-
-\subsection{Modelo reducido de variables con bajo poder discriminativo}
-En este apartado se realiza el ejercicio de discretización de la variable EDAD para un conjunto reducido de variables que incluye a la clase, la EDAD y el ESTADO CIVIL. 
-
-\begin{figure}[H]
-	\includegraphics[scale = 0.38]{4_2_Bins_Selected_var}
-	\caption[Ruido]{Categorización tenien}
-	\label{4.P4Selected}
-\end{figure}
-
-Esta última variable presenta un poder de discriminación similar al de la EDAD por lo que aparecen mejoras en la performance de entrenamiento a medida que se incrementan los niveles de la variable discretizada. Sin embargo, a la vez se observa un empeoramiento aún mayor en la preformance de test (ver Figura  \ref{4.P4Selected}). Por otro lado se observa la presencia de overfitting para mayor cantidad de bins para los criterios que no consideran la clase. El caso de la estrategia supervisada es representativo de la ausencia de nuevos aportes de información de esta variable en la determinación de la clase. En resumen, podríamos concluir que la variable numérica EDAD podría dejarse fuera de futuros modelos de predicción de la clase elegida ya que su contribución es prácticamente nula.
+%
+%\subsection{Modelo reducido de variables con bajo poder discriminativo}
+%En este apartado se realiza el ejercicio de discretización de la variable EDAD para un conjunto reducido de variables que incluye a la clase, la EDAD y el ESTADO CIVIL. 
+%
+%%\begin{figure}[H]
+%%	\includegraphics[scale = 0.38]{4_2_Bins_Selected_var}
+%%	\caption[Ruido]{Categorización tenien}
+%%	\label{4.P4Selected}
+%%\end{figure}
+%
+%Esta última variable presenta un poder de discriminación similar al de la EDAD por lo que aparecen mejoras en la performance de entrenamiento a medida que se incrementan los niveles de la variable discretizada. Sin embargo, a la vez se observa un empeoramiento aún mayor en la preformance de test (ver Figura  \ref{4.P4Selected}). Por otro lado se observa la presencia de overfitting para mayor cantidad de bins para los criterios que no consideran la clase. El caso de la estrategia supervisada es representativo de la ausencia de nuevos aportes de información de esta variable en la determinación de la clase. En resumen, podríamos concluir que la variable numérica EDAD podría dejarse fuera de futuros modelos de predicción de la clase elegida ya que su contribución es prácticamente nula.
 
 
 -----------------------
@@ -224,7 +217,9 @@ Para poder verificar las propiedades del método de árboles de clasificación p
 Desde el punto de vista del dataset seleccionado, Latinobarómetro 2011, en este trabajo se observó que algunas de las variables incluidas en el análisis aportaban escasa información nueva por lo que el algoritmo no las mostraba en el árbol. La selección de variables fue realizada en base a un criterio de sentido común, sin ningún tipo de análisis estadístico de las mismas que ordenara de alguna forma su significación en la explicación de la variable de clase. Una mejora a este trabajo podría consistir en realizar un análisis de métodos factoriales para la selección de variables de modo de elegir aquellas más cercanas a la variable de clase. Por otro lado, una extensión natural sería utilizar los árboles generados para predecir la clase en datos de otros períodos, disponibles online, y evaluar la utilidad de los modelos entrenados y la estabilidad de los resultados de las medidas de tamaño y performance comparativamente.
 
 \section*{Conclusiones}
-Con respecto a los datos faltantes, el árbol tiene una tolerancia similar a la mayoría de métodos estadísticos, en donde se admite al rededor de un 20\% de datos faltantes. \\
+En lo referido al sobreajuste y la poda, se observa que a medida que aumenta la confianza, aumentan el tamaño y el número de hojas. Ahora bien el performance del set de entrenamiento es siempre creciente respecto del nivel de confianza, mientras que el performance en el set de test tiene un máximo cuando la confianza está cerca a 0.1 en el caso analizado.\\
+Con respecto a los datos faltantes, este tiene poco impacto sobre el tamaño del árbol y el número de hojas para las distintas formas de generación de faltantes propuestas en el siguiente trabajo. Sin embargo, este claramente afecta el performance en todos los casos.\\
+En lo referente a el ruido generado sobre el árbol, este tiene mucha incidencia sobre el performance tanto en entrenamiento como en test y en el tamaño del árbol y el número de hojas, haciéndolo poco confiable cuando se presentan grandes porcentajes de ruido en los datos.\\
 En cuanto a la discretización de variables, en el ejercicio se observa claramente que la variable numérica seleccionada EDAD no aporta elementos determinantes en la predicción del valor de la clase. Al revisar su comportamiento discretizándola en un conjunto más reducido de variables con performance similar (con poca ganancia de información), en ningún momento forma parte del árbol, es decir que el algoritmo detecta el bajo poder de discriminación presente en la misma y la descarta lo cual resulta un comportamiento esperable.
 
 

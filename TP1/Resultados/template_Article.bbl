@@ -10,6 +10,11 @@ Lagos, M. (2012).
 \newblock Latinobarometro. opinion publica latinoamericana.
 \newblock Web.
 
+\bibitem[Mitchell, 1997]{Mitchell:1997:ML:541177}
+Mitchell, T.~M. (1997).
+\newblock {\em Machine Learning}.
+\newblock McGraw-Hill, Inc., New York, NY, USA, 1 edition.
+
 \bibitem[{R Core Team}, 2013]{RCran}
 {R Core Team} (2013).
 \newblock {\em R: A Language and Environment for Statistical Computing}.
