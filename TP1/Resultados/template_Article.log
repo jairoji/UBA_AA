@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.21)  12 JUN 2015 15:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.21)  12 JUN 2015 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -467,10 +467,10 @@ Overfull \hbox (31.69398pt too wide) in paragraph at lines 71--72
 File: 1_3_Conf_Perf_Num.png Graphic file (type png)
 
 <use 1_3_Conf_Perf_Num.png>
-Package pdftex.def Info: 1_3_Conf_Perf_Num.png used on input line 87.
-(pdftex.def)             Requested size: 401.49289pt x 160.59715pt.
+Package pdftex.def Info: 1_3_Conf_Perf_Num.png used on input line 88.
+(pdftex.def)             Requested size: 381.42897pt x 152.57158pt.
 
-Overfull \hbox (56.49289pt too wide) in paragraph at lines 87--88
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 88--89
 [][] 
  []
 
@@ -478,10 +478,10 @@ Overfull \hbox (56.49289pt too wide) in paragraph at lines 87--88
 <2_1_Unic_Col.png, id=19, 1606.0pt x 1204.5pt>
 File: 2_1_Unic_Col.png Graphic file (type png)
  <use 2_1_Unic_Col.png>
-Package pdftex.def Info: 2_1_Unic_Col.png used on input line 117.
+Package pdftex.def Info: 2_1_Unic_Col.png used on input line 121.
 (pdftex.def)             Requested size: 433.62581pt x 325.21935pt.
 
-Overfull \hbox (88.62581pt too wide) in paragraph at lines 117--118
+Overfull \hbox (88.62581pt too wide) in paragraph at lines 121--122
 [][] 
  []
 
@@ -490,81 +490,86 @@ Overfull \hbox (88.62581pt too wide) in paragraph at lines 117--118
 File: 2_1_Mult_Col_Unic_Fil.png Graphic file (type png)
 
 <use 2_1_Mult_Col_Unic_Fil.png>
-Package pdftex.def Info: 2_1_Mult_Col_Unic_Fil.png used on input line 132.
+Package pdftex.def Info: 2_1_Mult_Col_Unic_Fil.png used on input line 138.
 (pdftex.def)             Requested size: 433.62581pt x 325.21935pt.
 
-Overfull \hbox (88.62581pt too wide) in paragraph at lines 132--133
+Overfull \hbox (88.62581pt too wide) in paragraph at lines 138--139
 [][] 
  []
 
-<2_1_Mult_Col_Mult_Fil.png, id=24, 1606.0pt x 1204.5pt>
+[5] <2_1_Mult_Col_Mult_Fil.png, id=28, 1606.0pt x 1204.5pt>
 File: 2_1_Mult_Col_Mult_Fil.png Graphic file (type png)
 
 <use 2_1_Mult_Col_Mult_Fil.png>
-Package pdftex.def Info: 2_1_Mult_Col_Mult_Fil.png used on input line 145.
+Package pdftex.def Info: 2_1_Mult_Col_Mult_Fil.png used on input line 149.
 (pdftex.def)             Requested size: 433.62581pt x 325.21935pt.
 
-Overfull \hbox (88.62581pt too wide) in paragraph at lines 145--146
+Overfull \hbox (88.62581pt too wide) in paragraph at lines 149--150
 [][] 
  []
 
-[5 <./2_1_Mult_Col_Unic_Fil.png (PNG copy)>]
-<3_1_Ruido.png, id=29, 1003.75pt x 401.5pt>
+[6 <./2_1_Mult_Col_Unic_Fil.png (PNG copy)>] [7 <./2_1_Mult_Col_Mult_Fil.png (P
+NG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+<3_1_Ruido.png, id=36, 1003.75pt x 401.5pt>
 File: 3_1_Ruido.png Graphic file (type png)
  <use 3_1_Ruido.png>
-Package pdftex.def Info: 3_1_Ruido.png used on input line 158.
-(pdftex.def)             Requested size: 401.49289pt x 160.59715pt.
+Package pdftex.def Info: 3_1_Ruido.png used on input line 167.
+(pdftex.def)             Requested size: 381.42897pt x 152.57158pt.
 
-Overfull \hbox (56.49289pt too wide) in paragraph at lines 158--159
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 167--168
 [][] 
  []
 
-[6 <./2_1_Mult_Col_Mult_Fil.png (PNG copy)>] [7 <./3_1_Ruido.png (PNG copy)>]
-<4_1_Bins_Todas_var.png, id=37, 1003.75pt x 1204.5pt>
+[8 <./3_1_Ruido.png (PNG copy)>]
+<4_1_Bins_Todas_var.png, id=40, 1003.75pt x 1204.5pt>
 File: 4_1_Bins_Todas_var.png Graphic file (type png)
 
 <use 4_1_Bins_Todas_var.png>
-Package pdftex.def Info: 4_1_Bins_Todas_var.png used on input line 184.
-(pdftex.def)             Requested size: 401.49289pt x 481.79147pt.
+Package pdftex.def Info: 4_1_Bins_Todas_var.png used on input line 192.
+(pdftex.def)             Requested size: 381.42897pt x 457.71477pt.
 
-Overfull \hbox (56.49289pt too wide) in paragraph at lines 184--185
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 192--193
 [][] 
  []
 
-[8] <4_2_Bins_Selected_var.png, id=41, 1003.75pt x 1204.5pt>
+[9] [10 <./4_1_Bins_Todas_var.png (PNG copy)>]
+<4_2_Bins_Selected_var.png, id=47, 1003.75pt x 1204.5pt>
 File: 4_2_Bins_Selected_var.png Graphic file (type png)
 
 <use 4_2_Bins_Selected_var.png>
-Package pdftex.def Info: 4_2_Bins_Selected_var.png used on input line 193.
-(pdftex.def)             Requested size: 401.49289pt x 481.79147pt.
+Package pdftex.def Info: 4_2_Bins_Selected_var.png used on input line 212.
+(pdftex.def)             Requested size: 381.42897pt x 457.71477pt.
 
-Overfull \hbox (56.49289pt too wide) in paragraph at lines 193--194
+Overfull \hbox (36.42897pt too wide) in paragraph at lines 212--213
 [][] 
  []
 
-[9 <./4_1_Bins_Todas_var.png (PNG copy)>] [10 <./4_2_Bins_Selected_var.png (PNG
- copy)>] (./template_Article.bbl) [11] (./template_Article.aux) ) 
+[11] [12 <./4_2_Bins_Selected_var.png (PNG copy)>] (./template_Article.bbl
+[13]) [14] (./template_Article.aux) ) 
 Here is how much of TeX's memory you used:
  2580 strings out of 495025
  34114 string characters out of 6181515
- 96297 words of memory out of 5000000
+ 96298 words of memory out of 5000000
  5733 multiletter control sequences out of 15000+600000
  11849 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,7n,24p,731b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti10.pfb>
-Output written on template_Article.pdf (11 pages, 2564807 bytes).
+ 37i,7n,24p,988b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on template_Article.pdf (14 pages, 2571463 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

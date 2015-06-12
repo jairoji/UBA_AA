@@ -78,26 +78,30 @@ A medida que aumenta la confianza, aumentan el tamaño y el número de hojas Fig
 
 
 %\begin{figure}
-%\includegraphics[width=0.8\linewidth,height=0.4\textheight]{Punto_1_Confianza_VS_ajuste}
+%\includegraphics[width=0.8\linewidth,height=0.38\textheight]{Punto_1_Confianza_VS_ajuste}
 %\caption[Confianza vs ajuste]{Confianza vs Ajuste}
 %\label{P1ConfVSAjus}
 %\end{figure}
 
-\begin{figure}[H]
-	\includegraphics[scale = 0.4]{1_3_Conf_Perf_Num}
-	\caption[Confianza vs ajuste]{Gráficos de confianza}
-	\label{1.P1Conf}
-\end{figure}
+
+	\begin{figure}[H]
+		\includegraphics[scale = 0.38]{1_3_Conf_Perf_Num}
+		\caption[Confianza vs ajuste]{Gráficos de confianza}
+		\label{1.P1Conf}
+	\end{figure}
+
+
+
 %
 %
 %\begin{figure}
-%	\includegraphics[scale = 0.4]{Punto_1_Confianza_VS_ajuste}
+%	\includegraphics[scale = 0.38]{Punto_1_Confianza_VS_ajuste}
 %	\caption[Confianza vs ajuste]{Confianza vs Ajuste}
 %	\label{P1ConfVSAjus}
 %\end{figure}
 
 %\begin{figure}
-%	\includegraphics[scale = 0.4]{Punto_1_Confianza_VS_tamano}
+%	\includegraphics[scale = 0.38]{Punto_1_Confianza_VS_tamano}
 %	\caption[Confianza vs ajuste]{Confianza vs Tamaño}
 %	\label{P1ConfVSTamano}
 %\end{figure}
@@ -111,7 +115,7 @@ Para el análisis de datos faltantes, el algoritmo se sometió a 3 diferentes ti
 Para lograr lo propuesto anteriormente, se programaron una serie de funciones que incrementan en 2.5\% el porcentaje de valores faltantes desde 0\% hasta 85\%, luego se imputaron los datos faltantes usando la moda (media) global o la moda (media) teniendo en cuenta la clase. Con cada set de datos, se calculó un nuevo árbol de clasificación y se tomaron los valores correspondientes para los análisis que se presentan a continuación.
 
 \subsection{Sobre una sola variable}
-En el caso de una variable, se seleccionó como candidata la variable que separa mejor el árbol (P15N).
+En el caso de una variable, se seleccionó como candidata la variable que tiene mayor información de ganancia en el árbol (P15N).
 
 \begin{figure}[H]
 	\includegraphics[scale = 0.27]{2_1_Unic_Col}
@@ -121,22 +125,22 @@ En el caso de una variable, se seleccionó como candidata la variable que separa
 
 
 \subsubsection{Imputación sin tener en cuenta la clase}
-Cuando la imputación se hace sin tener en cuenta la clase, el árbol no se ve afectado por la variable imputada en el conjunto de entrenamiento. Ahora bien, en el conjunto de test, se nota que el performance cae, pero empieza a estabilizarse en la medida que la variable pierde poder discriminativo, hasta el punto en el que recupera el porcentaje de acierto.
+Cuando la imputación se hace sin tener en cuenta la clase, el árbol no se ve afectado por la variable imputada en el conjunto de entrenamiento. Ahora bien, en el conjunto de test, se nota que el performance cae, pero empieza a recuperarse en la medida que la variable pierde poder discriminativo, hasta el punto en el que se estabiliza. En cuanto al tamaño del árbol, este no se ve afectado al ser solamente una variable la que presenta datos faltantes. Figura \ref{2.P2Unic_Var} Columna izquierda.
 
 \subsubsection{Imputación teniendo en cuenta la clase}
+La imputación teniendo en cuenta la clase, permite observar que existe un efecto dependiendo de en donde estén los faltantes, es decir, si los faltatantes están igualmente distribuidos entre las categorías de la clase, el performance y el tamaño del árbol se mantienen relativamente constantes, mientras que si el porcentaje de faltantes es mucho mayor para una de las categorías, se presentan sobreajustes, además de disminuciones drásticas en el tamaño del árbol.
+Figura \ref{2.P2Unic_Var} Columna derecha.
 
 \subsection{Sobre varias variables con un único faltante por fila}
 En este caso, se agregaron datos faltantes de manera aleatoria a las columnas, pero tengiendo en cuenta que solamente se admite un valor faltante por fila en el conjunto de datos. Figura \ref{2.P2MultVarUnicFil} 
 
 \begin{figure}[H]
 	\includegraphics[scale = 0.27]{2_1_Mult_Col_Unic_Fil}
-	\caption[Faltantes Múltiple variable]{Gráficos de Faltantes en Múltiples variables con un solo faltante por fila}
+	\caption[Faltantes Múltiple variable]{Gráficos de Faltantes en múltiples variables con un solo faltante por fila}
 	\label{2.P2MultVarUnicFil}
 \end{figure}
 
-\subsubsection{Imputación sin tener en cuenta la clase}
-
-\subsubsection{Imputación teniendo en cuenta la clase}
+En ninguna de las metodologías de imputación se notan efectos importantes sobre el performance o el tamaño del árbol y el número de hojas a medida que aumenta el porcentaje de faltantes. Este análisis puede considerarse como un caso particular del caso propuesto en la siguiente sección.
 
 \subsection{Sobre varias variables con múltiples faltantes por fila}
 Para el último análisis, se agregaron datos faltantes sobre el total de entradas de el conjunto de datos (total de filas por total de columnas). Figura \ref{1.P2MultVarMultFil}
@@ -148,14 +152,19 @@ Para el último análisis, se agregaron datos faltantes sobre el total de entrad
 \end{figure}
 
 \subsubsection{Imputación sin tener en cuenta la clase}
+Cuando la cantidad de datos faltantes es inducida sobre la matriz completa, se observa que a medida que aumenta el porcentaje de faltantes, el ajuste del árbol en entrenamiento decae para todos los valores de confianza aunque el comportamiento en el grupo de test es relativamente constante. En cuanto al tamaño del árbol y el número de hojas, estos permanecen relativamente constantes para cada nivel de confianza. Figura \ref{1.P2MultVarMultFil} Columna izquierda.
 
 \subsubsection{Imputación teniendo en cuenta la clase}
+En este caso, a medida que aumenta el porcentaje de valores faltantes, se observa ue el ajuste en los datos de entrenamiento aumenta rápidamente, en contraste con el ajuste sobre los datos de test, sobre los cuales el decrecimiento es mucho más lento. El tamaño del árbol y el número de hojas se mantienen relativamente constantes nuevamente. Figura \ref{1.P2MultVarMultFil} Columna derecha.
 
 \section{Tolerancia al ruido}
-En esta parte, se genero entre 0 y 35\% de ruido sobre la clase. Figura \ref{3.P3Ruido}
+Para observar la tolerancia del algoritmo J-48 al ruido, se generó ruido entre el 0\% y el 35\% aumentando de a 0.025\%. Este ruido fue generado de manera aleatoria para cada una de las categorías de la variable de clase. \\
+
+Se puede observar que el 
+Figura \ref{3.P3Ruido}
 
 \begin{figure}[H]
-	\includegraphics[scale = 0.4]{3_1_Ruido}
+	\includegraphics[scale = 0.38]{3_1_Ruido}
 	\caption[Ruido]{Gráficos de Ruido}
 	\label{3.P3Ruido}
 \end{figure}
@@ -167,44 +176,59 @@ Si la variable a discretizar resultara relevante en términos de ganancia de inf
 
 Para el ejercicio se programó una función que selecciona entre los distintos criterios y luego, para cada bin del intervalo $[1,20]$, se arma un dataset con la variable discretizada que se particiona en subconjuntos de entrenamiento ($80\%$) y test ($20\%$). Luego, para la familia de combinaciones de factor de confianza en el intervalo $[0.05,0.5]$ a pasos de $0.05$, se corre llama al J48 sobre el primer dataset para extraer el modelo a utilizar con el conjunto de test y de ambas corridas se extrae la información que se precisa: tamaño del árbol, cantidad de hojas y performance.
 
-\subsection{Discretización por densidad}
+\section{Discretización de atributos numéricos}
+La única variable numérica considerada es la EDAD ($S17$), que se procedió a discretizar según tres criterios para el diseño de las categorías: a) de igual densidad, b) de igual frecuencia, y c) supervisado, en base a la clase.
 
-En este caso, como se observa en la figura XX se encontró que la variable discretizada prácticamente no incide en la performance ni en en el tamaño del árbol, lo cual estaría indicando que es un atributo sin mayor poder de discriminación.
+Si la variable a discretizar resultara relevante en términos de ganancia de información, se esperaría encontrar que a mayor cantidad de bins se incremente la performance del conjunto de entrenamiento. Para el caso, la variable EDAD evidencia poco aporte de información, independientemente del criterio de discretización utilizado. 
 
-\subsection{Discretización por frecuencias}
+Para el ejercicio se programó una función que selecciona entre los distintos criterios y luego, para cada bin del intervalo $[1,20]$, se arma un dataset con la variable discretizada que se particiona en subconjuntos de entrenamiento ($80\%$) y test ($20\%$). Luego, para la familia de combinaciones de factor de confianza en el intervalo $[0.05,0.5]$ a pasos de $0.05$, se corre llama al J48 sobre el primer dataset para extraer el modelo a utilizar con el conjunto de test y de ambas corridas se extrae la información que se precisa: tamaño del árbol, cantidad de hojas y performance.
 
-En el caso de la discretización por frecuencias se observa una respuesta similar, con signos de independencia tanto del tamaño del árbol como de la performance respecto de la cantidad de bins de discretización. En comparación con el criterio anterior, aparentemente no introduce mejoras a la performance en el conjunto de entrenamiento. 
+Adicionalmente, dado que se encuentra que la variable a discretizar aporta escasa o nula información en la determinación de la clase para el conjunto de variables seleccionadas, se realiza el ejercicio de discretización con la clase, la variable EDAD y una variable equiparable a esta en términos de poder de discriminación ($S15$, ESTADO CIVIL) para observar el comportamiento del algoritmo.
 
-\subsection{Método supervisado}
-Para este criterio, dado que no puede elegirse la cantidad de bines sino que es una salida de la corrida algoritmo, corresponde observar cuántos niveles utiliza el algoritmo en la discretización, que para el caso es uno solo. Con el dataset utilizado se observa que el J48 entrega una sola categoría (bin), que para la variable de clase no aporta nueva información.
-
-\subsection{Sobre variables con poco poder discriminativo}
+\subsection{Todas las variables}
+Cuando se incluye el conjunto completo de variables seleccionadas, en todos los casos se observa para distintos factores de confianza una mejora la performance del conjunto de entrenamiento y test a la vez para el intervalo de valores del factor de confianza especificado. No obstante, para cantidades mayores de niveles (bins) se observa incluso una caída en la performance de entrenamiento y test en las estrategias que no consideran la clase. Estos resultados indicarían que la variable EDAD no aporta mayor información que el resto de las variables consideradas.  
 
 \begin{figure}[H]
-	\includegraphics[scale = 0.4]{4_1_Bins_Todas_var}
+	\includegraphics[scale = 0.38]{4_1_Bins_Todas_var}
 	\caption[Ruido]{Gráficos de Ruido}
 	\label{4.P4Todas}
 \end{figure}
 
 
-\subsection{Sobre variables con mucho poder discriminativo}
+\subsubsection{Discretización por densidad}
+En este caso, como se observa en la Figura \ref{4.P4Todas} se encontró que la variable discretizada prácticamente no incide en la performance (gráficos a la derecha) ni en en el tamaño del árbol (gráficos a la izquierda), lo cual estaría indicando que es un atributo sin mayor poder de discriminación.
+
+\subsubsection{Discretización por frecuencias}
+En el caso de la discretización por frecuencias se observa una respuesta similar, con signos de independencia tanto del tamaño del árbol como de la performance respecto de la cantidad de bins de discretización. En comparación con el criterio anterior, aparentemente no introduce mejoras a la performance en el conjunto de entrenamiento. 
+
+\subsubsection{Método supervisado}
+Para este criterio, dado que no puede elegirse la cantidad de bines sino que es una salida de la corrida algoritmo, corresponde observar cuántos niveles utiliza el algoritmo en la discretización. Con el dataset utilizado el J48 entrega una sola categoría (bin) que para la variable de clase no aporta nueva información. 
+
+
+\subsection{Modelo reducido de variables con bajo poder discriminativo}
+En este apartado se realiza el ejercicio de discretización de la variable EDAD para un conjunto reducido de variables que incluye a la clase, la EDAD y el ESTADO CIVIL. 
 
 \begin{figure}[H]
-	\includegraphics[scale = 0.4]{4_2_Bins_Selected_var}
+	\includegraphics[scale = 0.38]{4_2_Bins_Selected_var}
 	\caption[Ruido]{Categorización tenien}
 	\label{4.P4Selected}
 \end{figure}
 
+Esta última variable presenta un poder de discriminación similar al de la EDAD por lo que aparecen mejoras en la performance de entrenamiento a medida que se incrementan los niveles de la variable discretizada. Sin embargo, a la vez se observa un empeoramiento aún mayor en la preformance de test (ver Figura  \ref{4.P4Selected}). Por otro lado se observa la presencia de overfitting para mayor cantidad de bins para los criterios que no consideran la clase. El caso de la estrategia supervisada es representativo de la ausencia de nuevos aportes de información de esta variable en la determinación de la clase. En resumen, podríamos concluir que la variable numérica EDAD podría dejarse fuera de futuros modelos de predicción de la clase elegida ya que su contribución es prácticamente nula.
 
 
+-----------------------
+\section*{Trabajo futuro}
+Para poder verificar las propiedades del método de árboles de clasificación para su aplicación en problemas de la vida real, sería conveniente mezclar las diferentes pruebas hechas en este trabajo. Por ejemplo, surge como pregunta natural: ¿qué sucede cuando el árbol es sometido a ruido y a faltantes al mismo tiempo? Además de ello, sería conveniente intentar otros métodos para imputación de datos categóricos que sesguen menos los datos, como por ejemplo el método de imputación Hot Deck, el cual, busca individuos similares al individuo con el dato faltante para "donarle" el dato que le hace falta. \cite{Rodgers1984}.
+
+Desde el punto de vista del dataset seleccionado, Latinobarómetro 2011, en este trabajo se observó que algunas de las variables incluidas en el análisis aportaban escasa información nueva por lo que el algoritmo no las mostraba en el árbol. La selección de variables fue realizada en base a un criterio de sentido común, sin ningún tipo de análisis estadístico de las mismas que ordenara de alguna forma su significación en la explicación de la variable de clase. Una mejora a este trabajo podría consistir en realizar un análisis de métodos factoriales para la selección de variables de modo de elegir aquellas más cercanas a la variable de clase. Por otro lado, una extensión natural sería utilizar los árboles generados para predecir la clase en datos de otros períodos, disponibles online, y evaluar la utilidad de los modelos entrenados y la estabilidad de los resultados de las medidas de tamaño y performance comparativamente.
 
 \section*{Conclusiones}
 Con respecto a los datos faltantes, el árbol tiene una tolerancia similar a la mayoría de métodos estadísticos, en donde se admite al rededor de un 20\% de datos faltantes. \\
 En cuanto a la discretización de variables, en el ejercicio se observa claramente que la variable numérica seleccionada EDAD no aporta elementos determinantes en la predicción del valor de la clase. Al revisar su comportamiento discretizándola en un conjunto más reducido de variables con performance similar (con poca ganancia de información), en ningún momento forma parte del árbol, es decir que el algoritmo detecta el bajo poder de discriminación presente en la misma y la descarta lo cual resulta un comportamiento esperable.
 
 
-\section*{Trabajo futuro}
-Para poder verificar las propiedades del método para su aplicación en problemas de la vida real, sería conveniente mezclar las diferentes pruebas hechas sobre en este trabajo. ¿qué pasa cuando el árbol es sometido a ruido y a faltantes al mismo tiempo?. Además de esto, sería conveniente intentar otros métodos para imputación de datos categóricos que sesguen menos los datos, como por ejemplo el método de imputación Hot Deck, el cual, busca individuos similares al individuo con el dato faltante para "donarle" el dato que le hace falta. \cite{Rodgers1984}
+
 
 \bibliographystyle{apalike}	
 \bibliography{Bibliografia.bib}
