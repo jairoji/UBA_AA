@@ -331,7 +331,7 @@ multiplot(Faltantes.Unic.Var.Global.Perf.plot, Faltantes.Unic.Var.Global.Tamano.
           Faltantes.Unic.Var.Clase.Perf.plot, Faltantes.Unic.Var.Clase.Tamano.plot, cols = 2)
 dev.off()
 
-png("2_1_Mult_Col_Unic_Fil.png", , width = 1600, height = 1200)
+png("2_1_Mult_Col_Unic_Fil.png", width = 1600, height = 1200)
 multiplot(Faltantes.Mult.Col.Unic.Fil.Global.Perf.plot, Faltantes.Mult.Col.Unic.Fil.Global.Tamano.plot, 
           Faltantes.Mult.Col.Unic.Fil.Clase.Perf.plot, Faltantes.Mult.Col.Unic.Fil.Clase.Tamano.plot, cols = 2)
 dev.off()

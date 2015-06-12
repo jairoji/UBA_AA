@@ -113,6 +113,13 @@ info.conf4.melt.dens.tam.g = ggplot(data = info.conf4.melt.dens.tam,
                                     aes(x= Bins, y=Número,
                                         group = interaction(Confianza, Característica), 
                                         colour = Confianza, linetype = Característica)) + geom_line(size = 1.2)
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + ggtitle("Gráfico de bins vs tamaño - Densidad") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.dens.tam.g = info.conf4.melt.dens.tam.g + theme(legend.title = element_text(size=15))
 info.conf4.melt.dens.tam.g
 
 # grafico discret densidad performance
@@ -125,6 +132,14 @@ info.conf4.melt.dens.perf.g = ggplot(data = info.conf4.melt.dens.perf,
                                     aes(x= Bins, y=Performance,
                                         group = interaction(Confianza, Medida), 
                                         colour = Confianza, linetype = Medida)) + geom_line(size = 1.2)
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + ggtitle("Gráfico de bins vs performance - Densidad") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.dens.perf.g = info.conf4.melt.dens.perf.g + theme(legend.title = element_text(size=15))
+
 info.conf4.melt.dens.perf.g #+ ylim(0,100)
 
 # grafico discret frecuencia tamano
@@ -137,6 +152,13 @@ info.conf4.melt.frec.tam.g = ggplot(data = info.conf4.melt.frec.tam,
                                     aes(x= Bins, y=Número,
                                         group = interaction(Confianza, Característica), 
                                         colour = Confianza, linetype = Característica)) + geom_line(size = 1.2)
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + ggtitle("Gráfico de bins vs tamaño - Frecuencia") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.frec.tam.g = info.conf4.melt.frec.tam.g + theme(legend.title = element_text(size=15))
 info.conf4.melt.frec.tam.g
 
 # grafico discret frecuencia performance
@@ -149,6 +171,13 @@ info.conf4.melt.frec.perf.g = ggplot(data = info.conf4.melt.frec.perf,
                                      aes(x= Bins, y=Performance,
                                          group = interaction(Confianza, Medida), 
                                          colour = Confianza, linetype = Medida)) + geom_line(size = 1.2)
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + ggtitle("Gráfico de bins vs performance - Frecuencia") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.frec.perf.g = info.conf4.melt.frec.perf.g + theme(legend.title = element_text(size=15))
 info.conf4.melt.frec.perf.g #+ ylim(0,100)
 
 # grafico discret supervisado tamano
@@ -161,6 +190,13 @@ info.conf4.melt.superv.tam.g = ggplot(data = info.conf4.melt.superv.tam,
                                     aes(x= Bins, y=Número,
                                         group = interaction(Confianza, Característica), 
                                         colour = Confianza, linetype = Característica)) + geom_line(size = 1.2)
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + ggtitle("Gráfico de bins vs tamaño - Supervisado") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.superv.tam.g = info.conf4.melt.superv.tam.g + theme(legend.title = element_text(size=15))
 info.conf4.melt.superv.tam.g
 
 # grafico discret supervisado performance
@@ -173,6 +209,13 @@ info.conf4.melt.superv.perf.g = ggplot(data = info.conf4.melt.superv.perf,
                                      aes(x= Bins, y=Performance,
                                          group = interaction(Confianza, Medida), 
                                          colour = Confianza, linetype = Medida)) + geom_line(size = 1.2)
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + ggtitle("Gráfico de bins vs performance - Supervisado") + xlab("Bins") + ylab("Performance")
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(plot.title = element_text(size = 20))
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(axis.text = element_text(size = 15))
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(axis.title.x = element_text(size = 15))
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(axis.title.y = element_text(size = 13))
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(legend.text = element_text(size=13))
+info.conf4.melt.superv.perf.g = info.conf4.melt.superv.perf.g + theme(legend.title = element_text(size=15))
 info.conf4.melt.superv.perf.g #+ ylim(0,100)
 
 
