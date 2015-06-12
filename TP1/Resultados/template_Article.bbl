@@ -1,0 +1,28 @@
+\begin{thebibliography}{}
+
+\bibitem[Hornik et~al., 2009]{RWeka}
+Hornik, K., Buchta, C., and Zeileis, A. (2009).
+\newblock Open-source machine learning: {R} meets {Weka}.
+\newblock {\em Computational Statistics}, 24(2):225--232.
+
+\bibitem[Lagos, 2012]{Latinobarometro2011}
+Lagos, M. (2012).
+\newblock Latinobarometro. opinion publica latinoamericana.
+\newblock Web.
+
+\bibitem[{R Core Team}, 2013]{RCran}
+{R Core Team} (2013).
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[Rodgers, 1984]{Rodgers1984}
+Rodgers, W. (1984).
+\newblock An evaluation of statistical matching.
+\newblock {\em Journal of Business and Economic Statistics}, page 91–102.
+
+\bibitem[Witten and Frank, 2005]{Weka1}
+Witten, I.~H. and Frank, E. (2005).
+\newblock {\em Data Mining: Practical Machine Learning Tools and Techniques}.
+\newblock Morgan Kaufmann, San Francisco, 2nd edition.
+
+\end{thebibliography}

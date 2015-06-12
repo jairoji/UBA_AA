@@ -47,7 +47,12 @@ Inducir_faltantes = function(X, porc, tipo = "Unico"){
   }
 }
 
-setwd("/run/media/jjimenez/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Datasets/")
+citation(package = "RWeka")
+citation(package = "reshape")
+citation(package = "ggplot2")
+
+
+setwd("/run/media/ahriman/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Datasets/")
 
 library(RWeka)
 library(ggplot2)
@@ -198,7 +203,9 @@ beep(8)
 info.confidence.unico = as.data.frame(info.confidence.unico)
 info.confidence.multiple = as.data.frame(info.confidence.multiple)
 
-
+setwd("/run/media/ahriman/Stuff/MDMKD/Primer cuatrimestre/UBA_AA/TP1/Resultados")
+write.xlsx(info.confidence.unico, "2.2.1.Mult.Col.Unic.Fil.Clase.xlsx")
+write.xlsx(info.confidence.multiple, "2.3.1.Mult.Col.Mult.Fil.Clase.xlsx")
 
 info.confidence.unico.melt = melt(info.confidence.unico[,c(1,2,5,6)], id.vars = c("Confidence", "Faltantes"))
 colnames(info.confidence.unico.melt) = c("Confianza", "Faltantes", "Característica", "Porcentaje")
